@@ -14,25 +14,27 @@
         <div class="accountTabs">
             <nav class="chooseTab">
                 <ul type="none" class="itemHolder">
-                    <li class="item">Login</li>
-                    <li class="item active">Cadastro</li>
+                    <li class="item active">Login</li>
+                    <li class="item">Cadastro</li>
                 </ul>
             </nav>
-            <div class="signInTab tab unactive">
+            <form class="signInTab tab active" method="post" >
+                <h4 class="title">Login</h4>
                 <h5 class="title">Utilize seus dados de acesso para entrar</h5>
 
                 <div class="inputHolder">
-                    <span class="inputDecoration">Delete this text after</span>
-                    <input type="text" class="signInInput" placeholder="Nome de usuário, e-mail ou celular"/>
+                    <label class="inputDecoration" for="emailInput">Nome de usuário, e-mail ou celular</label>
+                    <input type="text" id="emailInput" class="signInInput" placeholder="Nome de usuário, e-mail ou celular"/>
                 </div>
                 <div class="inputHolder">
-                    <span class="inputDecoration">Delete this text after</span>
-                    <input type="password" class="signInInput" placeholder="Digite sua senha"/>
+                    <label class="inputDecoration" for="passwordInput">Digite sua senha</label>
+                    <input type="password" id="passwordInput" class="signInInput" placeholder="Digite sua senha"/>
                     <a class="form_HelpLink">Esqueci minha senha</a>
                 </div>                
-                <button class="submit">Acessar</button>
-            </div>
-            <div class="signUpTab tab active">
+                <button disabled class="submit">Acessar</button>
+            </form>
+            <div class="signUpTab tab unactive">
+                <h4 class="title">Cadastro</h4>
                 <h5 class="title">Selecione uma opção para se cadastrar</h5>
                 <ul type="none" class="signUpOptions">
                     <li class="outerItem">
@@ -66,6 +68,7 @@
                 </ul>
             </div>
         </div>
+        <div class="logo"></div>
     </div>
 
     <script defer src="../../javascript/loginPage.js"></script>

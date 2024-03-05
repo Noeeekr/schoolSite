@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-    --mainColor: rgb(117,10,250);
+    --mainColor: rgb(114, 41, 230);
     --orange: rgb(255,110,0);
 }
 body {
@@ -23,13 +23,27 @@ h1.title {
     
     margin: 40px auto;
 }
+h4.title {
+    font-size: 18px;
+    font-family: Helvetica;
+    font-weight: 800;
+
+    color: rgba(0,0,0,0.8);
+
+    margin: 0px 0px 12px 0px;
+}
 h5.title {
     font-size: 16px;
     font-family: Arial;
     font-weight: normal;
 
-    margin: 10px 0px 0px 0px;
+    margin: 0px 0px 5px 0px;
 }
+label {
+    font-size: 14px;
+    font-family: Arial;
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -40,10 +54,10 @@ h5.title {
 .content .accountTabs {
     display: flex;
     flex-direction: column;
-
+    
     background-color: whitesmoke;
     width: 95%;
-        max-width: 800px;
+        max-width: 650px;
     height: auto;
     box-sizing: border-box;
     border-radius: 14px;
@@ -96,12 +110,24 @@ h5.title {
 .chooseTab .itemHolder .item:hover {
     color: var(--mainColor);
 }
+.accountTabs .tab {
+    min-width: 200px;
+}
+.accountTabs .tab h5.title {
+    margin: 10px 0px;
+}
+.accountTabs .tab h4.title {
+    display: none;
+}
 .accountTabs .signInTab {
     display: none;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
 
-    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 10px;
+
+    overflow: hidden;
 }
 .accountTabs .signInTab.active {
     display: flex;
@@ -114,12 +140,12 @@ h5.title {
 }
 .signInTab .inputHolder .inputDecoration { 
     position: absolute;
-    top: -10px;
+    top: 0px;
     left: 20px;
 
     display: none;
 
-    background-color: rgb(248, 248, 248);
+    background-color: whitesmoke;
     padding: 0px 5px;
 
     user-select: none;
@@ -128,7 +154,7 @@ h5.title {
     display: inline;
 }
 .signInTab .inputHolder .signInInput { 
-    background-color: rgb(242,242,242);
+    background-color: rgb(239, 239, 242);
     width: 88%;
     height: 40px;
     box-sizing: border-box;
@@ -141,10 +167,10 @@ h5.title {
 
     transition: border 250ms ease-in-out;
 
-    margin: 0px 0px 10px 0px;
+    margin: 9px 0px 7px 0px;
 }
 .signInTab .inputHolder .signInInput.active { 
-    background-color: rgb(248, 248, 248);
+    background-color: whitesmoke;
 
     border: solid 2px var(--mainColor);
 }
@@ -159,30 +185,33 @@ h5.title {
     margin: 0px 0px 0px auto;
 }
 .signInTab .submit {
-    background-color: rgb(110,110,110);
+    background-color: var(--orange);
     width: 100%;
     height: 34px;
     border: none;
     outline: none;    
     border-radius: 10px;
-    
+
     font-family: Verdana;
     font-weight: bold;
     font-size: 13px;
-
-    color: rgb(200,200,200);
+    color: white;
 
     transition: background-color 100ms linear, color 100ms linear;
 }
-.signInTab .submit:hover {
-    background-color: var(--orange);
+.signInTab .submit[disabled] {
+    background-color: rgb(110,110,110);
 
-    color: white;
+    color: rgb(200,200,200);
 }
 .signUpTab {
     display: none;
     flex-direction: column;
     padding: 10px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
 }
 .signUpTab.active {
     display: flex;
@@ -258,29 +287,85 @@ h5.title {
     border-left: 10px grey solid;
 }
 
+@media screen and (min-width: 760px) {
+    .content .title {
+        margin: 50px 20px;
+    }
+    .content .accountTabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+
+        background-color: transparent;
+
+        margin: 0;
+    }
+    .accountTabs .tab {
+        min-width: 400px;
+    }
+    .accountTabs .tab h4.title {
+        display: inline-block;
+
+        margin: 5px 0px;
+    }
+    .accountTabs .tab h5.title {
+        margin: 10px 0px 0px 0px;
+    }
+    .accountTabs .chooseTab {
+        display: none;
+    }
+    .accountTabs .signInTab {
+        display: flex;
+
+        background-color: whitesmoke;
+        padding: 20px;
+
+        flex: 1 0;
+    }
+    .signUpTab {
+        display: flex;
+
+        background-color: whitesmoke;
+        padding: 20px;
+
+        flex: 1 0;
+    }
+}
 /*
-<div class="signUpTab">
-    <h5 class="title">Selecione uma opção para se cadastrar</h5>
-    <ul type="none" class="singUpOptions">
-        <li classs="item">
-            <div class="icon"></div>
-            <p class="name">Alunos</p>
-            <div class="icon"></div>
-        </li>
-        <li classs="item">
-            <div class="icon"></div>
-            <p class="name">Responsável</p>
-            <div class="icon"></div>
-        </li>
-        <li classs="item">
-            <div class="icon"></div>
-            <p class="name">Professor e Equipe escolar</p>
-            <div class="icon"></div>
-        </li>
-        <li classs="item">
-            <div class="icon"></div>
-            <p class="name">Código de material Plurall</p>
-            <div class="icon"></div>
-        </li>
-    </ul>
+.accountTabs .chooseTab {
+.accountTabs .signInTab {
+.signUpTab {
+<div class="content">
+<h1 class="title">MySchool</h1>
+<div class="accountTabs">
+    <nav class="chooseTab">
+        <ul type="none" class="itemHolder">
+            <li class="item active">Login</li>
+            <li class="item">Cadastro</li>
+        </ul>
+    </nav>
+    <form method="post" class="signInTab tab active">
+        <h5 class="title">Utilize seus dados de acesso para entrar</h5
+        <div class="inputHolder">
+            <label class="inputDecoration" for="emailInput">Nome de usuário, e-mail ou celular</label>
+            <input type="text" id="emailInput" class="signInInput" placeholder="Nome de usuário, e-mail ou celular"/>
+        </div>
+        <div class="inputHolder">
+            <label class="inputDecoration" for="passwordInput">Digite sua senha</label>
+            <input type="password" id="passwordInput" class="signInInput" placeholder="Digite sua senha"/>
+            <a class="form_HelpLink">Esqueci minha senha</a>
+        </div>                
+        <button disabled class="submit">Acessar</button>
+    </form>
+    <div class="signUpTab tab unactive">
+        <h5 class="title">Selecione uma opção para se cadastrar</h5>
+        <ul type="none" class="signUpOptions">
+            <li class="outerItem">
+                <div class="innerItem">
+                    <div class="icon logo"></div>
+                    <p class="name">Alunos</p>
+                    <div class="icon arrow"></div>
+                </div>
+            </li>
 */
