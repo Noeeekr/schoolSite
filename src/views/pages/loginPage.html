@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../styleSheets/loginPage.css">
+    <title>Login - Plural</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    
+    <div class="content">
+        <h1 class="title">MySchool</h1>
+        <div class="accountTabs">
+            <nav class="chooseTab">
+                <ul type="none" class="itemHolder">
+                    <li class="item">Login</li>
+                    <li class="item active">Cadastro</li>
+                </ul>
+            </nav>
+            <div class="signInTab tab unactive">
+                <h5 class="title">Utilize seus dados de acesso para entrar</h5>
+
+                <div class="inputHolder">
+                    <span class="inputDecoration">Delete this text after</span>
+                    <input type="text" class="signInInput" placeholder="Nome de usuário, e-mail ou celular"/>
+                </div>
+                <div class="inputHolder">
+                    <span class="inputDecoration">Delete this text after</span>
+                    <input type="password" class="signInInput" placeholder="Digite sua senha"/>
+                    <a class="form_HelpLink">Esqueci minha senha</a>
+                </div>                
+                <button class="submit">Acessar</button>
+            </div>
+            <div class="signUpTab tab active">
+                <h5 class="title">Selecione uma opção para se cadastrar</h5>
+                <ul type="none" class="signUpOptions">
+                    <li class="outerItem">
+                        <div class="innerItem">
+                            <div class="icon logo"></div>
+                            <p class="name">Alunos</p>
+                            <div class="icon arrow"></div>
+                        </div>
+                    </li>
+                    <li class="outerItem">
+                        <div class="innerItem">
+                            <div class="icon logo"></div>
+                            <p class="name">Responsável</p>
+                            <div class="icon arrow"></div>
+                        </div>
+                    </li>
+                    <li class="outerItem">
+                        <div class="innerItem">
+                            <div class="icon logo"></div>
+                            <p class="name">Professor e Equipe escolar</p>
+                            <div class="icon arrow"></div>
+                        </div>
+                    </li>
+                    <li class="outerItem">
+                        <div class="innerItem">
+                            <div class="icon logo"></div>
+                            <p class="name">Código de material Plurall</p>
+                            <div class="icon arrow"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="../../javascript/loginPage.js"></script>
+</body>
+
+</html>
