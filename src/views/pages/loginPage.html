@@ -21,25 +21,25 @@
                         <li class="item">Cadastro</li>
                     </ul>
                 </nav>
-                <section>
-                    <form class="signInTab tab active" method="post" >
+                <section class="section">
+                    <form class="signInTab tab active" method="post">
                         <h4 class="title">Login</h4>
                         <h5 class="title">Utilize seus dados de acesso para entrar</h5>
                         
                         <div class="inputHolder">
                             <label class="inputDecoration" for="emailInput">Nome de usuário, e-mail ou celular</label>
-                            <input type="text" id="emailInput" class="signInInput" placeholder="Nome de usuário, e-mail ou celular"/>
+                            <input type="text" id="emailInput" class="input" placeholder="Nome de usuário, e-mail ou celular"/>
                         </div>
                         <div class="inputHolder">
                             <label class="inputDecoration" for="passwordInput">Digite sua senha</label>
-                            <input type="password" id="passwordInput" class="signInInput" placeholder="Digite sua senha"/>
+                            <input type="password" id="passwordInput" class="input" placeholder="Digite sua senha"/>
                             <a class="form_HelpLink">Esqueci minha senha</a>
                         </div>   
 
                         <button disabled type="submit" class="submit">Acessar</button>
                     </form>
                 </section>
-                <section>
+                <section class="section">
                     <div class="signUpTab tab unactive">
                         <h4 class="title">Cadastro</h4>
                         <h5 class="title">Selecione uma opção para se cadastrar</h5>
@@ -93,15 +93,57 @@
             </ul>
         </footer>
         <div class="popups">
-            <div class="popup">
-                <div class="feedbackPopup">
+            <article class="popup">
+                <section class="feedbackPopup alternate unactive">
                     <div class="icon"></div>
                     <p class="name">FeedBack</p>
-                </div>
-                <div class="feedbackMenu">
-                    
-                </div>
-            </div>
+                </section>
+                <section class="feedbackMenu">
+                    <p class="title">O que você está achando da Empresa?</p>
+                    <ul class="satisfactionBar itemHolder" type="none">
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Odiei</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Odiei</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Neutro</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Bom</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Amei</p>
+                        </li>
+                    </ul>
+                    <section class="commentSection">
+                        <div class="inputHolder">
+                            <label class="inputDecoration" for="comment">Deixe o seu comentário</label>
+                            <textarea rows="50" id="comment" class="input" type="text" placeholder="Deixe o seu comentário">abc</textarea>    
+                        </div>
+                    </section>
+                    <nav class="confirmationButtons">
+                        <button type="button" id="cancel" class="button alternate active">Cancel</button>
+                        <button disabled type="button" id="confirm" class="button">Confirm</button>
+                    </nav>
+                </section>
+            </article>
         </div>
 
     </div>

@@ -1,11 +1,16 @@
 (function(){
     [...document.querySelectorAll(".chooseTab li")].forEach((btn) => {
         btn.addEventListener("click",(e) => {
-            changeTab(e);
+            changeBtnState(e,"UL");
+            changeTab("tab",document.querySelector(".main .accountTabs"));
+        })
+    });
+    [...document.querySelectorAll(".popup .satisfactionBar .item")].forEach(option => {
+        option.addEventListener("click",(e) => {
             changeBtnState(e,"UL");
         })
     });
-    [...document.querySelectorAll(".signInInput")].forEach((input) => {
+    [...document.querySelectorAll(".input")].forEach((input) => {
         input.addEventListener("focus",(e) => {
             changeBtnState(e,"DIV",[".inputDecoration"])
         })
@@ -16,11 +21,14 @@
             enableSendForm(e,document.querySelector(".signInTab button.submit"))
         })
     });
-    document.querySelector("form.signInTab").addEventListener("submit",(e) => {
-        changePage(e);
+    [...document.querySelectorAll(".popup .alternate")].forEach((popup) => {
+        popup.addEventListener("click",() => {
+            changeTab("alternate",document.querySelector(".popups .popup"))
+        })
     })
 })();
 
+// validation ;
 function enableSendForm(event,button) {
     if (!validateForm(event)) {
         button.setAttribute("disabled","");
@@ -28,49 +36,6 @@ function enableSendForm(event,button) {
     }
     button.removeAttribute("disabled");
 }
-function changePage(event) {
-    event.preventDefault();
-
-    if (!validateForm(event)) return;
-
-    window.location.href = "mainPage.html";
-}
-function changeBtnState(eventOrElemen,parent,extraActives,unactivateExtras) { // html or boolean ; parent html ; array ;
-    let element = eventOrElemen.target ? eventOrElemen.target : eventOrElemen;
-
-    let elementHolder = element.parentElement;
-    while (elementHolder.tagName !== parent) {
-        elementHolder = elementHolder.parentElement;
-    }
-
-    [...elementHolder.querySelectorAll(".active")].forEach(el => {
-        el.classList.remove("active");
-    })
-
-    if (unactivateExtras) {
-        return;
-    }
-    
-    element.classList.add("active");
-    if (extraActives) {
-        extraActives.forEach(extra => {
-            elementHolder.querySelector(`${extra}`).classList.add("active")
-        })
-    }
-}
-function changeTab(event) {
-    if ([...event.target.classList].includes("active")) return;
-
-    let next = document.querySelector(".tab.unactive");
-    let current = document.querySelector(".tab.active");
-
-    next.classList.remove("unactive")
-    next.classList.add("active");
-    
-    current.classList.add("unactive");
-    current.classList.remove("active");
-}
-
 function validateForm(event) {
     let form = event.target;
     while (form.tagName !== "FORM") {
@@ -87,4 +52,39 @@ function validateForm(event) {
     }
 
     return true;
+}
+// this one changes independentely of quantity 4,5,6 buttons~;
+function changeBtnState(eventOrElemen,parent,extraActives,unactivateExtras) { // html or boolean ; parent html ; array ;
+    let element = eventOrElemen.target ? eventOrElemen.target : eventOrElemen;
+
+    let elementHolder = element.parentElement;
+    while (elementHolder.tagName !== parent) {
+        elementHolder = elementHolder.parentElement;
+    }
+
+    [...elementHolder.querySelectorAll(".active")].forEach(el => {
+        el.classList.remove("active");
+    })
+    if (unactivateExtras) {
+        return;
+    }
+
+    element.classList.add("active");
+    if (extraActives) {
+        extraActives.forEach(extra => {
+            elementHolder.querySelector(`${extra}`).classList.add("active")
+        })
+    }
+}
+// this changes between specificxz states; 
+// a window that opens when you click a button for example;
+function changeTab(elementClass,parentElement) {
+    let next = parentElement.querySelector(`.${elementClass}.unactive`);
+    let current = parentElement.querySelector(`.${elementClass}.active`);
+
+    next.classList.remove("unactive")
+    next.classList.add("active");
+    
+    current.classList.add("unactive");
+    current.classList.remove("active");
 }
