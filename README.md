@@ -1,15 +1,11 @@
-LOGIN PAGE
+Try to reproduce school site
 
-6 simulate the cookies button
 
-7 simulate the message that appears when the login inputs value are wrong
 
-8 do the media changes for different devices 
 
-9 do the footer 
+This project might evolve with my abilities
 
-10 do the feedback menu
 
-11 add the logo
 
-MAIN PAGE
+
+I'll see if I can create versions for each technology that I've used on it
