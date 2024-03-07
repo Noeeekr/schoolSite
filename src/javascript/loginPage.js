@@ -1,33 +1,45 @@
 (function(){
     [...document.querySelectorAll(".chooseTab li")].forEach((btn) => {
         btn.addEventListener("click",(e) => {
+            changeTab("tab",document.querySelector(".main .accountTabs"),e);
             changeBtnState(e,"UL");
-            changeTab("tab",document.querySelector(".main .accountTabs"));
         })
     });
-    [...document.querySelectorAll(".popup .satisfactionBar .item")].forEach(option => {
+    [...document.querySelectorAll(".popup .satisfactionBar .innerItem")].forEach(option => {
         option.addEventListener("click",(e) => {
             changeBtnState(e,"UL");
         })
     });
     [...document.querySelectorAll(".input")].forEach((input) => {
         input.addEventListener("focus",(e) => {
-            changeBtnState(e,"DIV",[".inputDecoration"])
+            changeBtnState(e,"DIV",[".inputDecoration"]);
         })
         input.addEventListener("blur",(e) => {
-            changeBtnState(e,"DIV",[".inputDecoration"],true)
+            changeBtnState(e,"DIV",[".inputDecoration"],true);
         })
         input.addEventListener("keyup",(e) => {
-            enableSendForm(e,document.querySelector(".signInTab button.submit"))
+            enableSendForm(e,document.querySelector(".signInTab button.submit"));
         })
     });
     [...document.querySelectorAll(".popup .alternate")].forEach((popup) => {
         popup.addEventListener("click",() => {
             changeTab("alternate",document.querySelector(".popups .popup"))
+            changeBtnState(
+                document.querySelector(".popup .satisfactionBar"),
+                "UL",
+                null,
+                true
+            )
         })
+    });
+    document.querySelector("button.submit").addEventListener("click",(e) => {
+        e.preventDefault();
+        sendToPage("mainPage.html");
     })
 })();
-
+function sendToPage(page) {
+    window.location.href = page;
+}
 // validation ;
 function enableSendForm(event,button) {
     if (!validateForm(event)) {
@@ -56,8 +68,8 @@ function validateForm(event) {
 // this one changes independentely of quantity 4,5,6 buttons~;
 function changeBtnState(eventOrElemen,parent,extraActives,unactivateExtras) { // html or boolean ; parent html ; array ;
     let element = eventOrElemen.target ? eventOrElemen.target : eventOrElemen;
-
-    let elementHolder = element.parentElement;
+    
+    let elementHolder = element;
     while (elementHolder.tagName !== parent) {
         elementHolder = elementHolder.parentElement;
     }
@@ -70,6 +82,7 @@ function changeBtnState(eventOrElemen,parent,extraActives,unactivateExtras) { //
     }
 
     element.classList.add("active");
+
     if (extraActives) {
         extraActives.forEach(extra => {
             elementHolder.querySelector(`${extra}`).classList.add("active")
@@ -78,7 +91,9 @@ function changeBtnState(eventOrElemen,parent,extraActives,unactivateExtras) { //
 }
 // this changes between specificxz states; 
 // a window that opens when you click a button for example;
-function changeTab(elementClass,parentElement) {
+function changeTab(elementClass,parentElement,event) {
+    if (event && event.target.classList.contains("active")) return;
+
     let next = parentElement.querySelector(`.${elementClass}.unactive`);
     let current = parentElement.querySelector(`.${elementClass}.active`);
 

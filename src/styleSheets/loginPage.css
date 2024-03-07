@@ -19,7 +19,7 @@ body {
     margin: 0px;
 }
 h1.title {
-    font-size: 34px;
+    font-size: 40px;
     font-family: Verdana;
 
     color: whitesmoke;
@@ -40,7 +40,7 @@ h5.title {
     font-family: Arial;
     font-weight: normal;
 
-    margin: 0px 0px 5px 0px;
+    margin: 0px 0px 0px 0px;
 }
 label {
     font-size: 14px;
@@ -52,10 +52,27 @@ label {
 
     position: relative;
 }
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+}
+.info .name {
+    font-family: Arial;
+    font-size: 12px;
+
+    color: rgb(0,0,0,0.8);
+
+    cursor: pointer;
+
+    margin: 5px 0px 30px 10px;
+}
 .inputHolder .inputDecoration { 
     position: absolute;
-    top: 0px;
     left: 20px;
+    top: 11px;
 
     display: none;
 
@@ -82,7 +99,7 @@ label {
 
     transition: border 250ms ease-in-out;
 
-    margin: 9px 0px 7px 0px;
+    margin: 20px 0px 0px 0px;
 }
 .inputHolder .input.active { 
     background-color: whitesmoke;
@@ -97,7 +114,7 @@ label {
 
     cursor: pointer;
 
-    margin: 0px 20px 15px auto;
+    margin: 5px 10px 30px auto;
 }
 
 /* local */
@@ -107,14 +124,16 @@ label {
     flex-direction: column;
     align-items: space-between;
 
-    width: 100%;
+    width: min(100%,1200px);
     padding: 0px;
+
+    margin: 0 auto;
 }
 .content .header {
     display: flex;
 
     width: 90%;
-        max-width: 1400px;
+        max-width: 1300px;
 
     margin: 0 auto;
 }
@@ -199,7 +218,9 @@ label {
     color: var(--mainColor);
 }
 .accountTabs .tab {
-    min-width: 100px;
+    min-width: 200px;
+    min-height: 300px;
+    border-radius: 19px;
 }
 .accountTabs .tab h5.title {
     margin: 10px 0px;
@@ -210,11 +231,10 @@ label {
 .accountTabs .signInTab {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 0px;
 
     min-height: 250px;
     padding: 10px;
-    border-radius: 10px;
 
     overflow: hidden;
 }
@@ -224,21 +244,25 @@ label {
 .signInTab .submit {
     background-color: var(--orange);
     width: 100%;
-    height: 34px;
+    height: 42px;
     border: none;
     outline: none;    
-    border-radius: 10px;
+    border-radius: 24px;
 
     font-family: Verdana;
     font-weight: bold;
     font-size: 13px;
     color: white;
 
+    cursor: pointer;
+
     transition: background-color 100ms linear, color 100ms linear;
 }
 .signInTab .submit[disabled] {
     background-color: rgb(110,110,110);
 
+    cursor: auto;
+    
     color: rgb(200,200,200);
 }
 .signUpTab {
@@ -246,7 +270,6 @@ label {
     flex-direction: column;
     padding: 10px;
 
-    border-radius: 10px;
 
     overflow: hidden;
 }
@@ -325,7 +348,6 @@ label {
 .signUpTab .innerItem:hover .icon.arrow {
     border-left: 10px grey solid;
 }
-
 .content .footer {
     width: 90%;
     
@@ -340,7 +362,7 @@ label {
 
     padding: 0px;
 
-    margin: 10px 0px 150px 0px;
+    margin: 20px 0px 0px 0px;
 }
 .footer .itemHolder .item {
     text-align: center;
@@ -434,7 +456,7 @@ label {
     gap: 10px;
 
     background-color: whitesmoke;
-        min-width: 300px;
+        min-width: 340px;
     height: auto;
         min-height: 240px;
     box-sizing: border-box;
@@ -455,12 +477,34 @@ label {
     margin: 0px;
 }
 .popup .feedbackMenu .itemHolder {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
 
     width: 100%;
     padding: 0px;
+
+    margin: 15px 0px 10px 0px;
+}
+.popup .feedbackMenu .itemHolder .outerItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    overflow: hidden;
+
+}
+.popup .feedbackMenu .itemHolder .outerItem .name {
+    text-align: center;
+    font-family: Arial;
+
+    opacity: 0;
+
+    margin: 0px;
+}
+.popup .feedbackMenu .itemHolder .outerItem:has(.innerItem.active) .name {
+    opacity: 1;
 }
 .popup .feedbackMenu .itemHolder .innerItem {
     display: flex;
@@ -491,6 +535,7 @@ label {
     height: auto;
 }
 .feedbackMenu .confirmationButtons .button {
+    background-color: transparent;
     width: 45%;
     height: 34px;
     border: none;
@@ -501,19 +546,37 @@ label {
     font-size: 14px;
     color: var(--mainColor);
 
-    cursor: pointer;
+    cursor: auto;
 
     margin: 10px auto 0px auto;
 }
-.feedbackMenu .confirmationButtons .button[disabled] {
+.feedbackMenu .confirmationButtons #confirm.button {
     background-color: rgb(0,0,0,0.05);
-
-    cursor: auto;
 
     color: grey;
 }
+.feedbackMenu:has(.innerItem.active) .confirmationButtons #confirm.button {
+    background-color: var(--mainColor);
+    color: white;
+
+    cursor: pointer;
+}
+.feedbackMenu .commentSection {
+    display: none;
+
+    width: 95%;
+}
+.feedbackMenu:has(.innerItem.active) .commentSection {
+    display: inline;
+}
 .feedbackMenu .commentSection .input {
     height: 120px;
+    width: 100%;
+
+    margin: 0px;
+}
+.feedbackMenu .commentSection .inputDecoration { 
+    top: -9px;
 }
 /*
 
@@ -538,11 +601,19 @@ label {
         gap: 20px;
 
         background-color: transparent;
-        
+        width: 100%;
+
         margin: 0;
     }
     .accountTabs .tab {
-        min-width: 340px;
+        display: flex;
+
+        background-color: white;
+            min-width: 300px;
+        padding: 30px;
+
+        flex: 1 0;
+
     }
     .accountTabs .tab h4.title {
         display: inline-block;
@@ -554,21 +625,5 @@ label {
     }
     .accountTabs .chooseTab {
         display: none;
-    }
-    .accountTabs .signInTab {
-        display: flex;
-
-        background-color: whitesmoke;
-        padding: 20px;
-
-        flex: 1 0;
-    }
-    .signUpTab {
-        display: flex;
-
-        background-color: whitesmoke;
-        padding: 20px;
-
-        flex: 1 0;
     }
 }
