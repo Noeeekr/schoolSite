@@ -18,6 +18,9 @@ body {
 
     margin: 0px;
 }
+textarea {
+    resize: none;
+}
 h1.title {
     font-size: 40px;
     font-family: Verdana;
@@ -38,9 +41,35 @@ h4.title {
 h5.title {
     font-size: 16px;
     font-family: Arial;
-    font-weight: normal;
 
     margin: 0px 0px 0px 0px;
+}
+h6.title {
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: normal;
+
+    margin: 10px 0px 0px 0px;
+}
+.button {
+    background-color: transparent;
+    width: 45%;
+    height: 34px;
+    border: none;
+    border-radius: 16px;
+
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--mainColor);
+
+    cursor: pointer;
+
+    margin: 10px auto 0px auto;
+}
+.paragraph {
+    font-size: 16px;
+    font-family: Arial;
 }
 label {
     font-size: 14px;
@@ -362,7 +391,7 @@ label {
 
     padding: 0px;
 
-    margin: 20px 0px 0px 0px;
+    margin: 40px 0px 30px 0px;
 }
 .footer .itemHolder .item {
     text-align: center;
@@ -397,7 +426,7 @@ label {
 }
 .popups .feedbackPopup {
     position: absolute;
-    top: 60%;
+    top: 40%;
     right: -55px;
 
     display: flex;
@@ -534,28 +563,56 @@ label {
     width: 100%;
     height: auto;
 }
-.feedbackMenu .confirmationButtons .button {
-    background-color: transparent;
-    width: 45%;
-    height: 34px;
-    border: none;
-    border-radius: 16px;
+.popups .popup:has(.cookiesPopup) {    
+    position: fixed;
+    left: 0;
+    bottom: 0;
 
-    font-family: Verdana;
-    font-weight: bold;
-    font-size: 14px;
-    color: var(--mainColor);
+    z-index: 3;
+}
+.popups .popup .cookiesPopup {
+    display: none;
+
+    background-color: rgb(238, 227, 255);
+    box-sizing: border-box;
+        padding: 20px 2vw;
+}
+.popups .popup .cookiesPopup.active {
+    display: flex;
+    flex-direction: column;
+    max-height: 160px;
+}
+.popups .popup .cookiesPopup .cookiesMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.popups .popup .cookiesPopup .cookiesMenu .paragraph {
+    font-size: 12px;
+    color: rgb(120,120,120);
+
+    margin: 0px;
+}
+.popups .popup .cookiesPopup .confirmationButtons {
+    display: flex;
+    justify-content: center;
+    
+    flex: 1 0 400px;
+}
+.confirmationButtons .confirm.button {
+    background-color: var(--mainColor);
+    color: white;
+
+    cursor: pointer;
+}
+.feedbackMenu .confirmationButtons .confirm.button {
+    background-color: rgb(0,0,0,0.05);
 
     cursor: auto;
 
-    margin: 10px auto 0px auto;
-}
-.feedbackMenu .confirmationButtons #confirm.button {
-    background-color: rgb(0,0,0,0.05);
-
     color: grey;
 }
-.feedbackMenu:has(.innerItem.active) .confirmationButtons #confirm.button {
+.feedbackMenu:has(.innerItem.active) .confirmationButtons .confirm.button {
     background-color: var(--mainColor);
     color: white;
 
@@ -591,8 +648,8 @@ label {
     .content .main .logo {
         display: flex;
     }
-    .content .title {
-        margin: 50px 20px;
+    .content h1.title {
+        margin: 55px 20px;
     }
     .content .accountTabs {
         flex-direction: row;
@@ -623,7 +680,13 @@ label {
     .accountTabs .tab h5.title {
         margin: 10px 0px 0px 0px;
     }
+    h6.title {
+        margin: 10px 0px 0px 0px;
+    }
     .accountTabs .chooseTab {
         display: none;
+    }
+    .popups .popup .cookiesPopup.active {
+        flex-direction: row;
     }
 }

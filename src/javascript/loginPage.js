@@ -23,7 +23,7 @@
     });
     [...document.querySelectorAll(".popup .alternate")].forEach((popup) => {
         popup.addEventListener("click",() => {
-            changeTab("alternate",document.querySelector(".popups .popup"))
+            changeTab("alternate",document.querySelector(".popups .popup.feedback"))
             changeBtnState(
                 document.querySelector(".popup .satisfactionBar"),
                 "UL",
@@ -35,6 +35,10 @@
     document.querySelector("button.submit").addEventListener("click",(e) => {
         e.preventDefault();
         sendToPage("mainPage.html");
+    });
+    [...document.querySelectorAll(".popups .popup.cookies .button")].forEach((btn) => {
+        btn.addEventListener("click",() => {
+            document.querySelector(".popups .popup .cookiesPopup").classList.remove("active")         })
     })
 })();
 function sendToPage(page) {

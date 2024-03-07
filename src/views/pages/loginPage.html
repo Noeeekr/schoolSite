@@ -24,7 +24,7 @@
                 <section class="section">
                     <form class="signInTab tab active" method="post">
                         <h4 class="title">Login</h4>
-                        <h5 class="title">Utilize seus dados de acesso para entrar</h5>
+                        <h6 class="title">Utilize seus dados de acesso para entrar</h6>
                         
                         <div class="inputHolder">
                             <label class="inputDecoration" for="emailInput">Nome de usuário, e-mail ou celular</label>
@@ -42,7 +42,7 @@
                 <section class="section">
                     <div class="signUpTab tab unactive">
                         <h4 class="title">Cadastro</h4>
-                        <h5 class="title">Selecione uma opção para se cadastrar</h5>
+                        <h6 class="title">Selecione uma opção para se cadastrar</h6>
                         <nav>
                             <ul type="none" class="signUpOptions">
                                 <li class="outerItem">
@@ -92,9 +92,24 @@
                 <li class="item"><a class="link itemDecoration">Ajuda</a></li>
             </ul>
         </footer>
-        <div class="popups">
-            <article class="popup">
-                <section class="feedbackPopup alternate unactive">
+        <section class="popups">
+            <article class="popup cookies">
+                <div class="cookiesPopup active">
+                    <div class="cookiesMenu">
+                        <h5 class="title">Utilização de Cookies</h5>
+                        <p class="paragraph">
+                            Esse site utiliza cookies para oferecer uma melhor experiência de navegação, analisar como você interage em nosso site, otimizar o desempenho e personalizar o conteúdo. Ao utilizar este site, você concorda com o uso de cookies. Saiba mais em nosso
+                            <a href="" class="form_HelpLink">Portal da privacidade</a>
+                        </p>
+                    </div>
+                    <div class="confirmationButtons">
+                        <button type="button" class="button cancel">Saiba mais</button>
+                        <button type="button" class="button confirm">Aceitar e fechar</button>
+                    </div>
+                </div>
+            </article>
+            <article class="popup feedback">
+                <section class="feedbackPopup alternate active">
                     <div class="icon"></div>
                     <p class="name">FeedBack</p>
                 </section>
@@ -143,12 +158,12 @@
                         </div>
                     </section>
                     <nav class="confirmationButtons">
-                        <button type="button" id="cancel" class="button alternate active">Cancel</button>
-                        <button disabled type="button" id="confirm" class="button">Confirm</button>
+                        <button type="button" id="cancel" class="button cancel alternate unactive">Cancel</button>
+                        <button disabled type="button" id="confirm" class="button confirm">Confirm</button>
                     </nav>
                 </section>
             </article>
-        </div>
+        </section>
 
     </div>
 
