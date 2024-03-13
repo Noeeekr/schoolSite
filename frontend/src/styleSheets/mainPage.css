@@ -5,7 +5,7 @@
     --bigNavWidth: 240px;
 }
 body {
-    background-color: rgb(240,240,440);
+    background-color: rgb(255,255,255);
     padding: 0px;
 
     margin: 0px;
@@ -25,43 +25,80 @@ body {
 .header {
     position: fixed;
 
-    background-color: rgba(250,250,250,0.2);
+    background-color: var(--mainColor);
     width: 100%;
-}
-.generalNavigation {
-    position: fixed;
-    bottom: 0;
+    height: 55px;
+    box-sizing: border-box;
+        padding: 0px 10px;
 
-    background-color: rgba(250,0,0,0.2);
-    width: var(--smallNavWidth);
-    height: calc(100% - 50px);
-
-    overflow: hidden;
-
-    transition: width 200ms ease-in-out;
+    z-index: 11;
 }
-.generalNavigation:hover {
-    width: var(--bigNavWidth);
+.header .headerBegin {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    height: 100%;
 }
-.main {
+.headerBegin .generalNav_button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    width: 37px;
+    height: 37px;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+.headerBegin .generalNav_button:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.headerBegin .generalNav_button .btn_decoration {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 80%;
+    height: 80%;
+    box-sizing: border-box;
+        padding: 6px 4px;
+}
+.headerBegin .generalNav_button .notificationBubble {
+    display: inline;
+
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    top: 20%;
+    right: 20%;
 
-    background-color: purple;
-    width: calc(100% - var(--smallNavWidth));
-    height: calc(100% - 50px);
+    background-color: var(--orange);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.headerBegin .generalNav_button.active .notificationBubble {
+    display: inline;
+}
+.headerBegin .generalNav_button .line {
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+}
+.headerBegin .generalNav_button .line:nth-last-of-type(1) {
+    width: 50%;
+}
+.headerBegin .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    height: 100%
+}
 
-    flex: 1 0;
-
-    transition: width 200ms ease-in-out;
-}
-.generalNavigation:hover + .main {
-    width: calc(100% - var(--bigNavWidth));
-}
-.profile {
-    display: none;
-}
 /*
 HEADER
 <header class="header">
@@ -112,3 +149,37 @@ HEADER
     </nav>
 </header>
 */
+.generalNavigation {
+    position: fixed;
+    bottom: 0;
+
+    background-color: rgb(255,255,255);
+    width: var(--smallNavWidth);
+    height: calc(100% - 50px);
+
+    overflow: hidden;
+
+    transition: width 200ms ease-in-out;
+}
+.generalNavigation:hover {
+    width: var(--bigNavWidth);
+}
+.generalNavigation:hover + .main {
+    width: calc(100% - var(--bigNavWidth));
+}
+.profile {
+    display: none;
+}
+.main {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    background-color: rgb(235,235,255);
+    width: calc(100% - var(--smallNavWidth));
+    height: calc(100% - 50px);
+
+    flex: 1 0;
+
+    transition: width 200ms ease-in-out;
+}
