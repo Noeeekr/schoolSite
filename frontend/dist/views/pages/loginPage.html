@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../styleSheets/loginPage.css">
+    <title>Entre com sua conta - mystudy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    
+    <div class="content">
+        <div class="header">
+            <h1 class="title">MyStudy</h1>
+        </div>
+        <main class="main">
+            <div class="accountTabs">
+                <nav class="chooseTab">
+                    <ul type="none" class="itemHolder">
+                        <li class="item active">Login</li>
+                        <li class="item">Cadastro</li>
+                    </ul>
+                </nav>
+                <section class="section">
+                    <form class="signInTab tab active" method="post">
+                        <h4 class="title">Login</h4>
+                        <h6 class="title">Utilize seus dados de acesso para entrar</h6>
+                        
+                        <div class="inputHolder">
+                            <label class="inputDecoration" for="emailInput">Nome de usuário, e-mail ou celular</label>
+                            <input type="text" id="emailInput" class="input" placeholder="Nome de usuário, e-mail ou celular"/>
+                        </div>
+                        <div class="inputHolder">
+                            <label class="inputDecoration" for="passwordInput">Digite sua senha</label>
+                            <input type="password" id="passwordInput" class="input" placeholder="Digite sua senha"/>
+                            <a class="form_HelpLink">Esqueci minha senha</a>
+                        </div>   
+
+                        <button disabled type="submit" class="submit">Acessar</button>
+                    </form>
+                </section>
+                <section class="section">
+                    <div class="signUpTab tab unactive">
+                        <h4 class="title">Cadastro</h4>
+                        <h6 class="title">Selecione uma opção para se cadastrar</h6>
+                        <nav>
+                            <ul type="none" class="signUpOptions">
+                                <li class="outerItem">
+                                    <div class="innerItem">
+                                        <div class="icon logo"></div>
+                                        <p class="name">Alunos</p>
+                                        <div class="icon arrow"></div>
+                                    </div>
+                                </li>
+                                <li class="outerItem">
+                                    <div class="innerItem">
+                                        <div class="icon logo"></div>
+                                        <p class="name">Responsável</p>
+                                        <div class="icon arrow"></div>
+                                    </div>
+                                </li>
+                                <li class="outerItem">
+                                    <div class="innerItem">
+                                        <div class="icon logo"></div>
+                                        <p class="name">Professor e Equipe escolar</p>
+                                        <div class="icon arrow"></div>
+                                    </div>
+                                </li>
+                                <li class="outerItem">
+                                    <div class="innerItem">
+                                        <div class="icon logo"></div>
+                                        <p class="name">Código de material Plurall</p>
+                                        <div class="icon arrow"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+            <div class="logo">
+                <img alt="useless_logo" src="https://images.vexels.com/media/users/3/152639/isolated/lists/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon.png"/>
+            </div>
+        </main>
+        <footer class="footer">
+            <ul class="itemHolder" type="none">
+                <li class="item"><a class="link itemDecoration">Conheça a empresa</a></li>
+                <li class="item"><a class="link itemDecoration">Termos de uso</a></li>
+                <li class="item"><a class="link itemDecoration">Portal de Privacidade</a></li>
+                <li class="item"><a class="link itemDecoration">Status de Plataforma</a></li>
+                <li class="item"><a class="link itemDecoration">Perguntas Frequentes</a></li>
+                <li class="item"><a class="link itemDecoration">Ajuda</a></li>
+            </ul>
+        </footer>
+        <section class="popups">
+            <article class="popup cookies">
+                <div class="cookiesPopup active">
+                    <div class="cookiesMenu">
+                        <h5 class="title">Utilização de Cookies</h5>
+                        <p class="paragraph">
+                            Esse site utiliza cookies para oferecer uma melhor experiência de navegação, analisar como você interage em nosso site, otimizar o desempenho e personalizar o conteúdo. Ao utilizar este site, você concorda com o uso de cookies. Saiba mais em nosso
+                            <a href="" class="form_HelpLink">Portal da privacidade</a>
+                        </p>
+                    </div>
+                    <div class="confirmationButtons">
+                        <button type="button" class="button cancel">Saiba mais</button>
+                        <button type="button" class="button confirm">Aceitar e fechar</button>
+                    </div>
+                </div>
+            </article>
+            <article class="popup feedback">
+                <section class="feedbackPopup alternate active">
+                    <div class="icon"></div>
+                    <p class="name">FeedBack</p>
+                </section>
+                <section class="feedbackMenu">
+                    <p class="title">O que você está achando da Empresa?</p>
+                    <ul class="satisfactionBar itemHolder" type="none">
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Odiei</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Ruim</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Neutro</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Bom</p>
+                        </li>
+                        <li class="outerItem">
+                            <div class="innerItem">
+                                <div class="emoji"></div>
+                            </div>
+                            <p class="name">Amei</p>
+                        </li>
+                    </ul>
+                    <section class="commentSection">
+                        <div class="inputHolder">
+                            <label class="inputDecoration" for="comment">Deixe o seu comentário</label>
+                            <textarea rows="50" id="comment" class="input" type="text" placeholder="Deixe o seu comentário">abc</textarea>    
+                            <div class="info">
+                                <p class="name">Está com problemas?</p>
+                                <a class="form_HelpLink">Fale com o suporte</a>
+                            </div>
+                        </div>
+                    </section>
+                    <nav class="confirmationButtons">
+                        <button type="button" id="cancel" class="button cancel alternate unactive">Cancelar</button>
+                        <button disabled type="button" id="confirm" class="button confirm">Confirmar</button>
+                    </nav>
+                </section>
+            </article>
+        </section>
+
+    </div>
+
+    <script defer src="../../components/loginPage.js"></script>
+</body>
+
+</html>
