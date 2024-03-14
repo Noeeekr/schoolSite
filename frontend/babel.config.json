@@ -1,11 +1,11 @@
 {
-    "presets":  [
+    "presets": [
         [
             "@babel/preset-env",
             {
-                "useBuiltIns": "usage", // verify the modules that are used and download them automatically
-                "modules": false,
+                "useBuiltIns": "usage",
                 "corejs": 3,
+                "modules": false,
                 "targets": {
                     "chrome": 51,
                     "ie": 11
