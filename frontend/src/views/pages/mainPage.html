@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../../styleSheets/global.css">
     <link rel="stylesheet" type="text/css" href="../../styleSheets/mainPage.css">
@@ -11,12 +12,17 @@
     <div class="content">
         <header class="header">
             <div class="headerBegin">
-                <div class="generalNav_button">
-                    <div class="btn_decoration">
+                <div class="generalNav_button" unactive="true">
+                    <div class="btn_decoration open">
                         <div class="notificationBubble"></div>
                         <div class="line"></div>
                         <div class="line"></div>
                         <div class="line"></div>
+                    </div>
+                    <div class="btn_decoration close">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
                     </div>
                 </div>
                 <div class="logo">
@@ -48,7 +54,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="profile">
+            <div class="profile" hidden>
                 <div class="icon">
                     S
                 </div>
@@ -58,121 +64,147 @@
                     <p class="text">Plataform Student ID 4399032</p>
                 </div>
             </div>
-            <nav class="generalNavigation">
-                <section class="subNav profileNav">
+            <nav class="generalNavigation" hidden>
+                <section class="nav profileNav">
                     <ul type="none" class="itemHolder">
                         <li class="item active">
-                            <a>
-                            <div class="icon"></div>
+                            <a class="menu link">
+                            <div class="icon ball"></div>
                             <p class="text">Início</p>
                             </a>
                         </li>
                         <li class="item">
-                            <a>
-                            <div class="icon"></div>
+                            <a class="menu link">
+                            <div class="icon ball"></div>
                             <p class="text">Notificações</p>
+                            </a>
                         </li>
-                        <li class="item">
-                            <div class="icon"></div>
-                            <p class="text">Ajuda</p>
+                        <li class="item" hidden>
+                            <a class="menu expand">
+                                <div class="icon ball"></div>
+                                <p class="text arrow">Ajuda</p>
+                                <div class="icon arrow"></div>    
+                            </a>
                             <ul type="none" class="innerHolder itemHolder">
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Central de privacidade</p>
+                                    <a class="menu link">    
+                                        <p class="text">Central de privacidade</p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="item">
-                            <div class="icon"></div>
-                            <p class="text">Minha conta</p>
+                        <li class="item" hidden>
+                            <a class="menu expand">
+                            <div class="icon ball"></div>
+                            <p class="text arrow">Minha conta</p>
+                            <div class="icon arrow"></div>
+                            </a>
                             <ul type="none" class="innerHolder itemHolder">
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Dados pessoas e acesso</p>
+                                    <a class="menu link">    
+                                        <p class="text">Dados pessoas e acesso</p>
+                                    </a>
                                 </li>
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Responsáveis vinculados</p>
+                                    <a class="menu link">    
+                                        <p class="text">Responsáveis vinculados</p>
+                                    </a>
                                 </li>
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Código de acesso</p>
+                                    <a class="menu link">    
+                                        <p class="text">Código de acesso</p>
+                                    </a>
                                 </li>
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Comunicações</p>
+                                    <a class="menu link">    
+                                        <p class="text">Comunicações</p>
+                                    </a>
                                 </li>
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Privacidade</p>
+                                    <a class="menu link">    
+                                        <p class="text">Privacidade</p>
+                                    </a>
                                 </li>
                                 <li class="item">
-                                    <div class="icon"></div>
-                                    <p class="text">Sair</p>
+                                    <a class="menu link">    
+                                        <p class="text">Sair</p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </section>
                 <div class="line"></div>
-                <section class="subNav featureNav">
+                <section class="nav featureNav">
                     <h6 class="title">
                         SALA DE AULA
                     </h6>
                     <ul type="none" class="itemHolder">
                         <li class="item">
-                            <a>
-                                <div class="icon"></div>
-                                <p class="name">Biblioteca de conteúdos</p>
+                            <a class="menu link">
+                                <div class="icon ball"></div>
+                                <p class="text">Biblioteca de conteúdos</p>
                             </a>
                         </li>
                         <li class="item">
-                            <a>
-                                <div class="icon"></div>
+                            <a class="menu link">
+                                <div class="icon ball"></div>
                                 <p class="text">Maestro</p>
                             </a>
                         </li>
                         <li class="item">
-                            <a>
-                                <div class="icon"></div>
+                            <a class="menu link">
+                                <div class="icon ball"></div>
                                 <p class="text">Atividades</p>
                             </a>
                         </li>
                         <li class="item">
-                            <a>
-                                <div class="icon"></div>
+                            <a class="menu link">
+                                <div class="icon ball"></div>
                                 <p class="text">Aulas digitais</p>
                             </a>
                         </li>
                         <li class="item">
-                            <a>
-                                <div class="icon"></div>
+                            <a class="menu link">
+                                <div class="icon ball"></div>
                                 <p class="text">Plurall Olímpico</p>
                             </a>
                         </li>
-                        <li class="item menu">
-                            <div class="icon"></div>
-                            <p class="text">Simulados e Provas</p>
-                            <div class="icon"></div>
+                        <li hidden class="item menu">
+                            <a class="menu expand">
+                                <div class="icon ball"></div>
+                                <p class="text">Simulados e Provas</p>
+                                <div class="icon arrow"></div>
+                            </a>
                             <ul type="none" class="innerHolder itemHolder">
                                 <div class="item">
-                                    <p class="text">Avaliações</p>
+                                    <a class="menu link">
+                                        <p class="text">Avaliações</p>
+                                    </a>
                                 </div>
                                 <div class="item">
-                                    <p class="text">Resultados de Avaliações</p>
+                                    <a class="menu link">
+                                        <p class="text">Resultados de Avaliações</p>
+                                    </a>
                                 </div>
                             </ul>
                         </li>
-                        <li class="item menu">
-                            <div class="icon"></div>
-                            <p class="text">Dúvidas e materiais</p>
-                            <div class="icon"></div>
+                        <li hidden class="item menu">
+                            <a class="menu expand">
+                                <div class="icon ball"></div>
+                                <p class="text">Dúvidas e materiais</p>
+                                <div class="icon arrow"></div>
+                            </a>
                             <ul type="none" class="innerHolder itemHolder">
                                 <div class="item">
-                                    <p class="text">Ver materiais e tirar dúvidas</p>
+                                    <a class="menu link">
+                                        <p class="text">Ver materiais e tirar dúvidas</p>
+                                    </a>
                                 </div>
                                 <div class="item">
-                                    <p class="text">Minhas dúvidas</p>
+                                    <a class="menu link">
+                                        <p class="text">Minhas dúvidas</p>
+                                    </a>
                                 </div>
                             </ul>
                         </li>
@@ -184,5 +216,7 @@
             <div class="">Lorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foistLorem ipsum dolor sit diamet, consecteneur foist</div>
         </main>
     </div>
+
+    <script src="../../components/mainPage.js"></script>
 </body>
 </html>

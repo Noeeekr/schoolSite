@@ -22,12 +22,6 @@ body {
 
     margin: 0px;
 }
-.line {
-    background-color: rgba(0,0,0,0.1);
-    width: 100%;
-    height: 2px;
-    border-radius: 10px;
-}
 .header {
     position: relative;
 
@@ -45,6 +39,8 @@ body {
 
     width: 100%;
     height: 100%;
+
+    user-select: none;
 }
 .headerBegin .generalNav_button {
     position: relative;
@@ -66,7 +62,10 @@ body {
     background-color: rgba(255,255,255,0.2);
 }
 .headerBegin .generalNav_button .btn_decoration {
-    display: flex;
+    pointer-events: none;
+}
+.headerBegin .generalNav_button .btn_decoration.open {
+    display: none;
     flex-direction: column;
     justify-content: space-between;
 
@@ -75,6 +74,32 @@ body {
     box-sizing: border-box;
         padding: 6px 4px;
 }
+.headerBegin .generalNav_button[unactive] .btn_decoration.open {
+    display: flex;
+}
+.headerBegin .generalNav_button .btn_decoration.close {
+    display: flex;
+
+    color: white;
+
+    opacity: 0.8;
+}
+.headerBegin .generalNav_button[unactive] .btn_decoration.close {
+    display: none;
+}
+/*
+<div class="generalNav_button unactive">
+    <div class="btn_decoration open">
+        <div class="notificationBubble"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div class="btn_decoration close">
+        X
+    </div>
+</div>
+*/
 .headerBegin .generalNav_button .notificationBubble {
     display: inline;
 
@@ -119,6 +144,9 @@ body {
     opacity: 1;
 
     margin: 0px;
+}
+.header:has(.generalNav_button[unactive]) .profile {
+    display: none;
 }
 .header .profile .icon {
     display: flex;
@@ -176,14 +204,24 @@ body {
 
     margin: 0px;
 }
-.generalNavigation .subNav {
-    background-color: rgba(0,200,0,0.4);
+.header:has(.generalNav_button[unactive]) .generalNavigation {
+    display: none;
 }
-.subNav .title {
-    margin: 0px;
+.generalNavigation .nav {    
+    cursor: pointer;
 
+    margin: 0px;
 }
-.subNav .itemHolder {
+.nav h6.title {
+    letter-spacing: 0.3px;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(0,0,0,0.5);
+
+    margin: 0px;
+}
+.nav .itemHolder {
     display: flex;
     flex-direction: column;
 
@@ -192,17 +230,50 @@ body {
 
     margin: 0px;
 }
-.subNav .itemHolder .item {
-    background-color: rgba(0,0,100,0.2);
+.nav li[hidden] .itemHolder {
+    display: none;
+}
+.nav .itemHolder .item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
     padding: 14px;
 }
-.subNav .itemHolder .item:hover {
-    background-color: red;
+.nav .itemHolder .item .menu{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
 }
-.subNav .itemHolder .item .icon {
+.nav .itemHolder .item .icon.ball {
+    background-color: white;
+    width: 19px;
+    height: 19px;
+    border: solid var(--mainColor) 2px;
+    border-radius: 50%;
+
     margin: 0px;
 }
-.subNav .itemHolder .item .text {
+.nav .itemHolder .item:hover .icon.ball {
+    background-color: var(--mainColor);
+}
+.nav .itemHolder .item .icon.arrow {
+    width: 0px;
+    height: 0px;
+    border-left: transparent solid 5px;
+    border-right: transparent solid 5px;
+    border-top: rgb(40,40,40) solid 5px;
+    border-bottom: transparent solid 0px;
+    border-radius: 0;
+}
+.nav .itemHolder .item .text {
+    width: 100%;
+
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: 500;
     margin: 0px;
 }
 /*
@@ -364,7 +435,7 @@ HEADER
     bottom: 0px;
     right: 0px;
 
-    background-color: rgb(230,230,230);
+    background-color: rgb(244,244,244);
     width: calc(100% - var(--smallNavWidth));
     height: calc(100% - 50px);
 
