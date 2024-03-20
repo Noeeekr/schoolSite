@@ -2,33 +2,40 @@
 
 (function() {{
     document.querySelector(".generalNav_button").addEventListener("click",(e) => {
-        changeBtnState(e,"unactive");
-        changeTabState(e);
+        changeElState(
+            e,
+            "unactive",
+            document.querySelector(".generalNav_button")
+        );
+    });
+    document.querySelectorAll(".generalNavigation .nav .item .menu.expand").forEach((item) => {
+        item.addEventListener("click",(e) => {
+            changeElState(
+                e,
+                "hidden",
+                findChildren([...document.querySelectorAll(".generalNavigation .nav .item:has(.menu.expand)")],e.target)
+            )
+        })
     })
 }})();
 
-function switchActiveBtn() {
+function findChildren(rry,el) {
+    while (!rry.find(item => item === el)) {
+        el = el.parentElement
+    }
 
+    return rry[rry.indexOf(el)]
 }
-function changeBtnState(event,state) {
-    if (event.target.getAttribute(state)) {
-        event.target.removeAttribute(state)
+function changeElState(el,state,target) {
+    let htmlEl = el.target ? el.target : el;
+
+    while (htmlEl !== target) {
+        htmlEl = htmlEl.parentElement;
+    }
+
+    if (htmlEl.getAttribute(state)) {
+        htmlEl.removeAttribute(state)
         return;
     }
-    event.target.setAttribute(state,"true");
+    htmlEl.setAttribute(state,"true");
 }
-function changeTabState(event) {
-
-}
-// change state should change tab state 
-
-
-console.log(
-    document.querySelectorAll(".generalNavigation .nav .item:has(.menu.expand)")
-)
-
-document.querySelectorAll(".generalNavigation .nav .item:has(.menu.expand)").forEach(
-    m => {
-        m.querySelector(".innerHolder").style = "display: none"
-    }
-)

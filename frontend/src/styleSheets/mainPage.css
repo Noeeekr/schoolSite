@@ -208,8 +208,6 @@ body {
     display: none;
 }
 .generalNavigation .nav {    
-    cursor: pointer;
-
     margin: 0px;
 }
 .nav h6.title {
@@ -240,15 +238,23 @@ body {
 
     padding: 14px;
 }
-.nav .itemHolder .item .menu{
+.nav .itemHolder .item.active, .nav .itemHolder .item:active {
+    background-color: rgb(0,0,0,0.03);
+    border-radius: 10px;
+}
+.nav .itemHolder .item .menu {
     display: flex;
     align-items: center;
     gap: 10px;
 
     width: 100%;
+
+    cursor: pointer;
+}
+.nav .itemHolder .item .icon {
+    flex: 0 0 auto;
 }
 .nav .itemHolder .item .icon.ball {
-    background-color: white;
     width: 19px;
     height: 19px;
     border: solid var(--mainColor) 2px;
@@ -256,8 +262,10 @@ body {
 
     margin: 0px;
 }
-.nav .itemHolder .item:hover .icon.ball {
+.nav .itemHolder .item:hover .icon.ball, .nav .itemHolder .item.active .icon.ball{
     background-color: var(--mainColor);
+
+    border: solid white 2px;
 }
 .nav .itemHolder .item .icon.arrow {
     width: 0px;
@@ -442,4 +450,9 @@ HEADER
     flex: 1 0;
 
     transition: width 200ms ease-in-out;
+}
+.popups .feedbackPopup {
+    bottom: 0px;
+    right: 55px;
+
 }
