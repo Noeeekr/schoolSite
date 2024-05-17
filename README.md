@@ -1,17 +1,13 @@
-Try to reproduce school site
+Summary: 
 
+- Objective: Try to reproduce school site
 
+- Status: Restarting project with react
 
+Abilities involved:
 
-This project might evolve with my abilities, including:
-
-> HTML
-> CSS
-> JAVASCRIPT
-> NPM
-> with babel
-> with webpack
-
-
-I'll see if I can create versions for each technology that I've used on it 
-
+- HTML
+- CSS
+- JAVASCRIPT
+- REACT
+- VITE
